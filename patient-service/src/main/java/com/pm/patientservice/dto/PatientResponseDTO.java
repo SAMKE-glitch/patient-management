@@ -1,34 +1,28 @@
 package com.pm.patientservice.dto;
 
 public class PatientResponseDTO {
-    private String Id;
-    private String Name;
+    private String id;
+    private String name;
     private String email;
     private String address;
     private String dateOfBirth;
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    // Standard getters and setters
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getEmail() {
@@ -39,6 +33,14 @@ public class PatientResponseDTO {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -46,5 +48,4 @@ public class PatientResponseDTO {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
 }
