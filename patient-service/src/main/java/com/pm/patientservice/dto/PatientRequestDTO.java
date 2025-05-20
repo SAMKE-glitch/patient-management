@@ -12,4 +12,13 @@ public class PatientRequestDTO {
     @NotBlank(message = "Email is required")
     @Email(message = "Email should be valid")
     private String email;
+
+    @NotBlank(message = "Address is required")
+    private String address;
+
+    @NotBlank(message = "Date of birth required")
+    private String dateOfBirth;
+
+    @NotBlank(message = "Registered date is required")
+    private String registeredDate;
 }
