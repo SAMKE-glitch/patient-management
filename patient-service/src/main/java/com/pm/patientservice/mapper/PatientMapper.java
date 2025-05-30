@@ -17,6 +17,7 @@ public class PatientMapper {
         return patientDTO;
     }
 
+    // toModel method helper
     public static Patient toModel(PatientRequestDTO patientRequestDTO) {
         Patient patient = new Patient();
 
