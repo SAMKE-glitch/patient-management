@@ -36,5 +36,7 @@ public class PatientService {
         return PatientMapper.toDTO(newPatient);
     }
 
-    public PatientResponseDTO updatePatient(UUID id, PatientRequestDTO patientRequestDTO) {}
+    public PatientResponseDTO updatePatient(UUID id, PatientRequestDTO patientRequestDTO) {
+        Patient patient = patientRepository.findById(id)
+    }
 }
