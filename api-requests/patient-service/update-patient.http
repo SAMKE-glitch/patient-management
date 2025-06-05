@@ -4,7 +4,6 @@ Content-Type: application/json
 
 {
   "name": "Samwel Mwawasi",
-  "email": "sammythemwa2@gmail.com",
   "address": "Kamiti Road 1231",
   "dateOfBirth": "1995-09-09"
 }
