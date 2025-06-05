@@ -1,11 +1,12 @@
-### PUT updates an existing Patient entity
-PUT http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+### POST Creates a new Patient entity
+POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
   "name": "Samwel Mwawasi",
-  "email": "sammythemwa2@gmail.com",
+  "email": "sammythemwa@gmail.com",
   "address": "Kamiti Road 1231",
-  "dateOfBirth": "1995-09-09"
+  "dateOfBirth": "1995-09-09",
+  "registeredDate": "2025-05-22"
 }
 ###
