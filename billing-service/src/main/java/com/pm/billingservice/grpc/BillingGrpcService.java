@@ -21,8 +21,9 @@ public class BillingGrpcService extends BillingServiceImplBase {
 
         BillingResponse response = BillingResponse.newBuilder()
                 .setAccountId("12345")
-                .setStatus("Active")
+                .setStatus("ACTIVE")
                 .build();
 
+        responseObserver.onNext(response);
     }
 }
