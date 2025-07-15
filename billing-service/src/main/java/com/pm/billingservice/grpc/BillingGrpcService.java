@@ -25,5 +25,6 @@ public class BillingGrpcService extends BillingServiceImplBase {
                 .build();
 
         responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 }
