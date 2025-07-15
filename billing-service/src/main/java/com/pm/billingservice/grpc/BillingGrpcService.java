@@ -10,7 +10,7 @@ import billing.BillingServiceGrpc.BillingServiceImplBase;
 @GrpcService
 public class BillingGrpcService extends BillingServiceImplBase {
     @Override
-    public void createBillingAcount(BillingRequest billingRequest, StreamObserver<BillingResponse> responseStreamObserver){
+    public void createBillingAcount(BillingRequest billingRequest, StreamObserver<BillingResponse> responseObserver){
 
     }
 }
