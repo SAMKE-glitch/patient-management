@@ -1,6 +1,8 @@
 package com.pm.patientservice.grpc;
 
 
+import billing.BillingRequest;
+import billing.BillingResponse;
 import billing.BillingServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -20,5 +22,9 @@ public class BillingServiceGrpcClient {
         ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAdress, serverPort).usePlaintext().build();
 
         blockingStub = BillingServiceGrpc.newBlockingStub(channel);
+    }
+
+    public BillingResponse createBillingAccount(String patiendId, String name, String email) {
+        BillingRequest request = BillingRequest.newBuilder().setPatientId(patiendId).setName(name).setEmail(email).build();
     }
 }
