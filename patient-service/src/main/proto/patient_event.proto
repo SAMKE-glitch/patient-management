@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package patient.events;
+option java_multiple_files = true;
 
 message PatientEvent {
   string patientId = 1;
