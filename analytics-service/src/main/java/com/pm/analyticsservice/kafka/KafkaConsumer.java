@@ -27,6 +27,5 @@ public class KafkaConsumer {
         } catch (InvalidProtocolBufferException e) {
             log.error("Error deserializing event {}", e.getMessage());
         }
-
     }
 }
