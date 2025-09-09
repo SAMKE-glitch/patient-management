@@ -1,16 +1,17 @@
 server:
-  port: 4004
+  port: 4004   # API Gateway is running on port 4004
 
 spring:
   cloud:
     gateway:
       routes:
         - id: patient-service-route
-          uri: http://patient-service:4000
+          uri: http://patient-service:4000   # destination microservice (Docker/K8s service name: patient-service)
           predicates:
-            - path=/api/patients/**
+            - Path=/api/patients/**          # match incoming requests with /api/patients/**
           filters:
-            - strip-prefix=1
+            - StripPrefix=1                  # remove first path segment (/api) before forwarding
+
 
           ## REST ClIENT -> http://localhost:4004/api/patients
           ## API GATEWAY -> http://patient-service:4000/patients
