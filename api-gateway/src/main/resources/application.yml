@@ -11,3 +11,7 @@ spring:
             - path=/api/patients/**
           filters:
             - strip-prefix=1
+
+          ## REST ClIENT -> http://localhost:4004/api/patients
+          ## API GATEWAY -> http://patient-service:4000/patients
+          ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> patients Array.
