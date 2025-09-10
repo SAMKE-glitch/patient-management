@@ -16,3 +16,13 @@ spring:
           ## REST ClIENT -> http://localhost:4004/api/patients
           ## API GATEWAY -> http://patient-service:4000/patients
           ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> patients Array.
+
+        - id: api-docs-patient-route
+          uri: http://patient-service:4000
+          predicates:
+            - path=/api-docs.patients
+          filters:
+            - rewrite-api=/api-docs/patients,/v3/api-docs
+
+          ## REST-CLIENT -> http://localhost:4004/api-docs/patients
+          ## API-GATEWAY -> http://patient-service:4000/v3/api-docs
