@@ -4,25 +4,26 @@ server:
 spring:
   cloud:
     gateway:
-      routes:
-        - id: patient-service-route
-          uri: http://patient-service:4000   # destination microservice (Docker/K8s service name: patient-service)
-          predicates:
-            - Path=/api/patients/**          # match incoming requests with /api/patients/**
-          filters:
-            - StripPrefix=1                  # remove first path segment (/api) before forwarding
+      server:
+        webflux:
+          routes:
+            - id: patient-service-route
+              uri: http://patient-service:4000   # destination microservice (Docker/K8s service name: patient-service)
+              predicates:
+                - Path=/api/patients/**          # match incoming requests with /api/patients/**
+              filters:
+                - StripPrefix=1                  # remove first path segment (/api) before forwarding
 
+              ## REST CLIENT -> http://localhost:4004/api/patients
+              ## API GATEWAY -> http://patient-service:4000/patients
+              ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> patients Array.
 
-          ## REST ClIENT -> http://localhost:4004/api/patients
-          ## API GATEWAY -> http://patient-service:4000/patients
-          ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> patients Array.
+            - id: api-docs-patient-route
+              uri: http://patient-service:4000
+              predicates:
+                - Path=/api-docs/patients
+              filters:
+                - RewritePath=/api-docs/patients,/v3/api-docs
 
-        - id: api-docs-patient-route
-          uri: http://patient-service:4000
-          predicates:
-            - path=/api-docs.patients
-          filters:
-            - rewrite-api=/api-docs/patients,/v3/api-docs
-
-          ## REST-CLIENT -> http://localhost:4004/api-docs/patients
-          ## API-GATEWAY -> http://patient-service:4000/v3/api-docs
+              ## REST CLIENT -> http://localhost:4004/api-docs/patients
+              ## API GATEWAY -> http://patient-service:4000/v3/api-docs
