@@ -16,6 +16,7 @@ public class AuthService {
 
     public Optional<String> authenticate(LoginRequestDTO loginRequestDTO) {
         Optional<User> user = userService.findByEmail(loginRequestDTO.getEmail())
-                .filter(u -> passwordEncoder.matches(loginRequestDTO.getPassword(), u.getPassword()));
+                .filter(u -> passwordEncoder.matches(loginRequestDTO.getPassword(), u.getPassword()))
+                .map(u -> jwtUtil.generateToken(u.getEmail(), u.getRole()));
     }
 }
