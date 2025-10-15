@@ -1,5 +1,6 @@
 package com.pm.authservice.util;
 
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.nio.charset.StandardCharsets;
@@ -12,5 +13,11 @@ public class JwtUtil {
 
     public JwtUtil(@Value("${jwt.secret}") String secret){
         byte[] keyBytes = Base64.getDecoder().decode(secret.getBytes(StandardCharsets.UTF_8));
+
+        this.secretKey = Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public String generateToken(String email, String role){
+
     }
 }
